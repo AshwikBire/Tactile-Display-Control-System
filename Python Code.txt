@@ -1,0 +1,21 @@
+
+
+def generate_braille_pattern(user_input):
+    # Logic to convert user input to Braille pattern
+    braille_pattern = convert_to_braille(user_input)
+    return braille_pattern
+
+def actuate_tactile_display(braille_pattern):
+    for row in range(10):
+        for col in range(20):
+            if braille_pattern[row][col] == 1:
+                # Activate actuator for 50ms to raise the dot
+                activate_actuator(row, col)
+            else:
+                # Deactivate actuator for 50ms to lower the dot
+                deactivate_actuator(row, col)
+
+# Simulate the system
+user_input = get_user_input()
+braille_pattern = generate_braille_pattern(user_input)
+actuate_tactile_display(braille_pattern)
